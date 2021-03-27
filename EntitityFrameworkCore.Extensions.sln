@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntitityFrameworkCore.SearchExtensions", "src\EntitityFrameworkCore.SearchExtensions\EntitityFrameworkCore.SearchExtensions.csproj", "{11005D7B-3150-4744-9ABC-888D428E279D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{554042C9-D3E1-4DC9-B318-6A207F211B8D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{721E3770-092B-4991-8A8D-00805520EADA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{349E4B41-1969-4563-BBF0-14B95CD47589}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitityFrameworkCore.SearchExtensions.Tests", "tests\EntitityFrameworkCore.SearchExtensions.Tests\EntitityFrameworkCore.SearchExtensions.Tests.csproj", "{964E9236-E377-4CAD-9516-CBF1A8D122A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11005D7B-3150-4744-9ABC-888D428E279D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11005D7B-3150-4744-9ABC-888D428E279D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11005D7B-3150-4744-9ABC-888D428E279D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11005D7B-3150-4744-9ABC-888D428E279D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{964E9236-E377-4CAD-9516-CBF1A8D122A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{964E9236-E377-4CAD-9516-CBF1A8D122A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{964E9236-E377-4CAD-9516-CBF1A8D122A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{964E9236-E377-4CAD-9516-CBF1A8D122A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{11005D7B-3150-4744-9ABC-888D428E279D} = {721E3770-092B-4991-8A8D-00805520EADA}
+		{964E9236-E377-4CAD-9516-CBF1A8D122A4} = {349E4B41-1969-4563-BBF0-14B95CD47589}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC04464C-65B7-4423-B6A7-FA65EE951FAE}
+	EndGlobalSection
+EndGlobal
