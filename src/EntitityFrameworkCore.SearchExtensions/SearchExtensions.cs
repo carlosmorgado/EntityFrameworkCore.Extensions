@@ -23,8 +23,12 @@ namespace EntitityFrameworkCore.SearchExtensions
                 throw new ArgumentNullException(nameof(source));
             }
 
-            if (properptySelector is null
-                || properptySelector.Body.NodeType != ExpressionType.MemberAccess
+            if (properptySelector is null)
+            {
+                throw new ArgumentNullException(nameof(properptySelector));
+            }
+
+            if (properptySelector.Body.NodeType != ExpressionType.MemberAccess
                 || properptySelector.Body is not MemberExpression propertySelectorMemberExpression
                 || propertySelectorMemberExpression.Member is not PropertyInfo)
             {
@@ -39,9 +43,9 @@ namespace EntitityFrameworkCore.SearchExtensions
             }
 
             searchTerm = $"%{searchTerm}%";
-            var itemParameter = Parameter(typeof(T), "item");
+            var itemParameter = properptySelector.Parameters[0];
 
-            Expression expressionProperty = properptySelector;
+            var expressionProperty = properptySelector.Body;
 
             if (typeof(TProperty) != typeof(string))
             {
@@ -51,11 +55,11 @@ namespace EntitityFrameworkCore.SearchExtensions
             }
 
             var selector = Call(
-                       null,
-                       like,
-                       functions,
-                       expressionProperty,
-                       Constant(searchTerm));
+                null,
+                like,
+                functions,
+                expressionProperty,
+                Constant(searchTerm));
 
             return source.Where(Lambda<Func<T, bool>>(selector, itemParameter));
         }
