@@ -8,7 +8,7 @@ using Xunit;
 
 namespace EntitityFrameworkCore.SearchExtensions.Tests
 {
-    public class SearchExtensionsTests
+    public class SearchExtensionsSqlServerTests
     {
         [Fact]
         public void SearchWithExpression_WithNullSource_ShouldTrhowArgumentNullException()
@@ -42,7 +42,7 @@ namespace EntitityFrameworkCore.SearchExtensions.Tests
 
             tests.AddRange(expected);
 
-            var context = new TestDbContext();
+            var context = new TestSqlServerDbContext();
             context.Seed();
             context.TestClasses.AddRange(tests);
             context.SaveChanges();
@@ -74,7 +74,7 @@ namespace EntitityFrameworkCore.SearchExtensions.Tests
 
             tests.AddRange(expected);
 
-            var context = new TestDbContext();
+            var context = new TestSqlServerDbContext();
             context.Seed();
             context.TestClasses.AddRange(tests);
             context.SaveChanges();
@@ -107,7 +107,7 @@ namespace EntitityFrameworkCore.SearchExtensions.Tests
 
             tests.AddRange(expected);
 
-            var context = new TestDbContext();
+            var context = new TestSqlServerDbContext();
             context.Seed();
             context.TestClasses.AddRange(tests);
             context.SaveChanges();
@@ -137,13 +137,13 @@ namespace EntitityFrameworkCore.SearchExtensions.Tests
 
             var testClassFaker = new Faker<TestClass>();
             testClassFaker.RuleFor(testClass => testClass.TestStringProperty, faker => faker.Lorem.Sentence());
-            testClassFaker.RuleFor(testClass => testClass.TestIntProperty, faker => faker.Random.Int() * 100000 + intTerm);
+            testClassFaker.RuleFor(testClass => testClass.TestIntProperty, faker => faker.Random.Int(0, 10) * 100000 + intTerm);
 
             var expected = testClassFaker.Generate(10);
 
             tests.AddRange(expected);
 
-            var context = new TestDbContext();
+            var context = new TestSqlServerDbContext();
             context.Seed();
             context.TestClasses.AddRange(tests);
             context.SaveChanges();
@@ -178,7 +178,7 @@ namespace EntitityFrameworkCore.SearchExtensions.Tests
 
             tests.AddRange(expected);
 
-            var context = new TestDbContext();
+            var context = new TestSqlServerDbContext();
             context.Seed();
             context.TestClasses.AddRange(tests);
             context.SaveChanges();
@@ -214,7 +214,7 @@ namespace EntitityFrameworkCore.SearchExtensions.Tests
 
             tests.AddRange(expected);
 
-            var context = new TestDbContext();
+            var context = new TestSqlServerDbContext();
             context.Seed();
             context.TestClasses.AddRange(tests);
             context.SaveChanges();
