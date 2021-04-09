@@ -1,11 +1,11 @@
-﻿using System;
-using System.Data.Common;
+﻿using System.Data.Common;
+using EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations
 {
-    public class TestSqliteDbContext : DbContext, IDisposable
+    public class TestSqliteDbContext : ADbContext
     {
         private DbConnection connection;
 
@@ -20,21 +20,6 @@ namespace EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations
                 .Options)
         {
             this.connection = connection;
-        }
-
-        public DbSet<TestClass> TestClasses { get; set; }
-
-        public void Seed()
-        {
-            this.Database.EnsureDeleted();
-            this.Database.EnsureCreated();
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .Entity<TestClass>()
-                .HasKey(testClass => testClass.Id);
         }
 
         public override void Dispose()

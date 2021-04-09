@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations
 {
-    public class TestSqlServerDbContext : DbContext, IDisposable
+    public class TestSqlServerDbContext : ADbContext
     {
         private const string connectionString = "Server=localhost;Database=SearchExtentionsTestDatabase;User Id=SA;Password=MySuperStrongPassword!;";
 
@@ -14,21 +12,6 @@ namespace EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations
                 .UseSqlServer(connectionString)
                 .Options)
         {
-        }
-
-        public DbSet<TestClass> TestClasses { get; set; }
-
-        public void Seed()
-        {
-            this.Database.EnsureDeleted();
-            this.Database.EnsureCreated();
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder
-                .Entity<TestClass>()
-                .HasKey(testClass => testClass.Id);
         }
     }
 }
