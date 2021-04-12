@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions;
+﻿using EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
 namespace EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations
