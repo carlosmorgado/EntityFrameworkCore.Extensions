@@ -1,7 +1,7 @@
-﻿using EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions;
+﻿using CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
-namespace EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations
+namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.TestImplementations
 {
     public class TestSqlServerDbContext : ADbContext
     {

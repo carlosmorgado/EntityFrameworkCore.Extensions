@@ -2,12 +2,12 @@
 using System.Linq;
 using System.Linq.Expressions;
 using Bogus;
-using EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations;
-using EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions;
+using CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.TestImplementations;
+using CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions;
 using Shouldly;
 using Xunit;
 
-namespace EntitityFrameworkCore.SearchExtensions.Tests.Abstractions
+namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
 {
     public abstract class SearchExtensionsTests<TContext> : IDisposable
         where TContext : ITestDbContext

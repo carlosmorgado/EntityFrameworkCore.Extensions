@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions
+namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions
 {
     public abstract class ADbContext : DbContext, ITestDbContext
     {

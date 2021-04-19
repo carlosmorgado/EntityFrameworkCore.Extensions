@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 
-namespace EntitityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions
+namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.TestImplementations.Abstractions
 {
     public interface ITestDbContext : IDisposable
     {
