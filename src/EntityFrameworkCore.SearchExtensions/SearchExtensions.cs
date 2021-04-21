@@ -4,7 +4,6 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using static System.Linq.Expressions.Expression;
 
-[assembly: CLSCompliant(true)]
 namespace System.Linq
 {
     public static class SearchExtensions
