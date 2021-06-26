@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+    sqlServer:
+        container_name: Database-SqlServer
+        image: mcr.microsoft.com/mssql/rhel/server
+        ports:
+            - "1433:1433"
+        environment:
+            SA_PASSWORD: "MySuperStrongPassword!"
+            ACCEPT_EULA: "Y"
+    postgreSql:
+        container_name: Database-PostgreSql
+        image: postgres
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_PASSWORD: "MySuperStrongPassword!"
