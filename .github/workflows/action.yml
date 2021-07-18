@@ -25,13 +25,13 @@ jobs:
       run: dotnet restore
 
     - name: Build
-      run: dotnet build --no-restore -o BuildArtifact
+      run: dotnet build --no-restore --configuration Release
 
     - name: Upload Build Artifacts
       uses: actions/upload-artifact@v2
       with:
         name: BuildArtifact
-        path: BuildArtifact
+        path: src\EntityFrameworkCore.SearchExtensions\bin\Release
 
     - name: Create Test Containers
       run: docker-compose up -d
