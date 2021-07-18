@@ -30,6 +30,9 @@ jobs:
         name: BuildArtifact
         path: BuildArtifact
 
+    - name: Create Test Containers
+      run: docker-compose up -d
+
     - name: Test
       run: dotnet test --no-build --verbosity normal
 
