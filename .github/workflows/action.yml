@@ -18,7 +18,10 @@ jobs:
       with:
         dotnet-version: 5.0.x
 
-    - name: Restore dependencies
+    - name: Clean Workspace
+      run: dotnet clean
+
+    - name: Restore Dependencies
       run: dotnet restore
 
     - name: Build
