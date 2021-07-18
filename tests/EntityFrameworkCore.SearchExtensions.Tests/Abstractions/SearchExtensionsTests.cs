@@ -22,10 +22,10 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
 
         protected abstract TContext GenerateContext();
 
-        public void Dispose() => this.context.Dispose();
+        public virtual void Dispose() => this.context.Dispose();
 
         [Fact]
-        public void SearchWithExpression_WithNullSource_ShouldTrhowArgumentNullException()
+        public virtual void SearchWithExpression_WithNullSource_ShouldTrhowArgumentNullException()
         {
             // Arrange
             IQueryable<TestClass> source = null;
@@ -38,7 +38,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void SearchWithExpression_WithNullPropertySelector_ShouldTrhowArgumentNullException()
+        public virtual void SearchWithExpression_WithNullPropertySelector_ShouldTrhowArgumentNullException()
         {
             // Arrange
             var searchTerm = "ToatsNotATest";
@@ -68,7 +68,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void SearchWithExpression_WithInvalidPropertySelector_ShouldTrhowArgumentException()
+        public virtual void SearchWithExpression_WithInvalidPropertySelector_ShouldTrhowArgumentException()
         {
             // Arrange
             var searchTerm = "ToatsNotATest";
@@ -98,7 +98,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void SearchWithExpression_WithNullSearchTerm_SShouldReturnSource()
+        public virtual void SearchWithExpression_WithNullSearchTerm_SShouldReturnSource()
         {
             {
                 // Arrange
@@ -125,7 +125,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void SearchWithExpression_WithEmptySearchTerm_ShouldReturnSource()
+        public virtual void SearchWithExpression_WithEmptySearchTerm_ShouldReturnSource()
         {
             {
                 // Arrange
@@ -152,7 +152,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void SearchWithExpression_WithSearchTearmFoundForString_ShouldReturnItems()
+        public virtual void SearchWithExpression_WithSearchTearmFoundForString_ShouldReturnItems()
         {
             // Arrange
             var searchTerm = "ToatsNotATest";
@@ -185,7 +185,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void SearchWithExpression_WithSearchTearmFoundForInt_ShouldReturnItems()
+        public virtual void SearchWithExpression_WithSearchTearmFoundForInt_ShouldReturnItems()
         {
             // Arrange
             var intTerm = 98723;
@@ -219,7 +219,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void SearchWithExpression_WithSearchTearmNotFoundForString_ShouldNotReturnItems()
+        public virtual void SearchWithExpression_WithSearchTearmNotFoundForString_ShouldNotReturnItems()
         {
             // Arrange
             var searchTerm = "ToatsNotATest";
@@ -252,7 +252,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void SearchWithExpression_WithSearchTearmNotFoundForInt_ShouldNotReturnItems()
+        public virtual void SearchWithExpression_WithSearchTearmNotFoundForInt_ShouldNotReturnItems()
         {
             // Arrange
             var intTerm = 98723;
@@ -286,7 +286,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void Search_WithNullSource_ShouldTrhowArgumentNullException()
+        public virtual void Search_WithNullSource_ShouldTrhowArgumentNullException()
         {
             // Arrange
             IQueryable<TestClass> source = null;
@@ -298,7 +298,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void Search_WithNullSearchTerm_SShouldReturnSource()
+        public virtual void Search_WithNullSearchTerm_SShouldReturnSource()
         {
             {
                 // Arrange
@@ -324,7 +324,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void Search_WithEmptySearchTerm_ShouldReturnSource()
+        public virtual void Search_WithEmptySearchTerm_ShouldReturnSource()
         {
             {
                 // Arrange
@@ -350,7 +350,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void Search_WithSearchTearmFoundForString_ShouldReturnItems()
+        public virtual void Search_WithSearchTearmFoundForString_ShouldReturnItems()
         {
             // Arrange
             var searchTerm = "ToatsNotATest";
@@ -382,7 +382,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void Search_WithSearchTearmFoundForInt_ShouldReturnItems()
+        public virtual void Search_WithSearchTearmFoundForInt_ShouldReturnItems()
         {
             // Arrange
             var intTerm = 98723;
@@ -415,7 +415,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void Search_WithSearchTearmNotFoundForString_ShouldNotReturnItems()
+        public virtual void Search_WithSearchTearmNotFoundForString_ShouldNotReturnItems()
         {
             // Arrange
             var searchTerm = "ToatsNotATest";
@@ -447,7 +447,7 @@ namespace CarlosMorgado.EntityFrameworkCore.SearchExtensions.Tests.Abstractions
         }
 
         [Fact]
-        public void Search_WithSearchTearmNotFoundForInt_ShouldNotReturnItems()
+        public virtual void Search_WithSearchTearmNotFoundForInt_ShouldNotReturnItems()
         {
             // Arrange
             var intTerm = 98723;
