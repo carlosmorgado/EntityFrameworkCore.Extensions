@@ -1,0 +1,77 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET 5.0
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+
+    - name: Setup .NET Core 3.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+
+    - name: Clean Workspace
+      run: dotnet clean
+
+    - name: Restore Dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: BuildArtifact
+        path: ./src/EntityFrameworkCore.SearchExtensions/bin/Release
+
+    - name: Create Test Containers
+      run: docker-compose up -d
+
+    - name: Test
+      run: dotnet test --no-build --configuration Release --verbosity normal
+
+  release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+        source-url: https://nuget.pkg.github.com/CarlosMorgado/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.NUGET_KEY}}        
+        
+    - name: Download Build Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: BuildArtifact
+
+    - name: Generate NuGet Package
+      run: dotnet pack -o NugetArtifacts
+
+    - name: Upload Nuget Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: NugetArtifacts
+        path: NugetArtifacts
+
+    - name: Push Nuget
+      run: dotnet nuget push ./<project>/NugetArtifacts/*.nupkg --skip-duplicate --no-symbols true
