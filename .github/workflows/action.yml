@@ -45,19 +45,27 @@ jobs:
       run: dotnet test --no-build --configuration Release --verbosity normal
 
   release:
-    if: github.event.pull_request.merged == true
+    if: ${{ github.event.pull_request.merged == true }}
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
 
-    - name: Setup .NET
+    - name: Setup .NET 5.0
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
         source-url: https://nuget.pkg.github.com/CarlosMorgado/index.json
       env:
-        NUGET_AUTH_TOKEN: ${{secrets.NUGET_KEY}}        
+        NUGET_AUTH_TOKEN: ${{secrets.NUGET_KEY}}   
+
+    - name: Setup .NET Core 3.1
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+        source-url: https://nuget.pkg.github.com/CarlosMorgado/index.json
+      env:
+        NUGET_AUTH_TOKEN: ${{secrets.NUGET_KEY}}     
         
     - name: Download Build Artifacts
       uses: actions/download-artifact@v2
