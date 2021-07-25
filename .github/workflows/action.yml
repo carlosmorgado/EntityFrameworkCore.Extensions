@@ -23,6 +23,9 @@ jobs:
       with:
         dotnet-version: 3.1.x
 
+    - name: Create Test Containers
+      run: docker-compose up -d
+
     - name: Clean Workspace
       run: dotnet clean
 
@@ -38,14 +41,11 @@ jobs:
         name: BuildArtifact
         path: ./src/EntityFrameworkCore.SearchExtensions/bin/Release
 
-    - name: Create Test Containers
-      run: docker-compose up -d
-
     - name: Test
       run: dotnet test --no-build --configuration Release --verbosity normal
 
   release:
-    if: ${{ github.event.pull_request.merged == true }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
 
     steps:
